@@ -1,7 +1,9 @@
 const _ = require('lodash');
+const moment = require('moment');
 
 const cacheDao = require('../dao/cacheDao');
 const logger = require('../util/logger');
+const config = require('../configurations');
 
 class CacheService {
     /**
@@ -46,6 +48,15 @@ class CacheService {
 
             if (cacheObj) {
                 logger.info(`Cache hit`);
+
+                let hasExpired = moment().diff(moment(cacheObj.updated_at), 'minutes') > config.ttl;
+
+                if (hasExpired) {
+                    // Object is expired.
+                    // Need to return correct data.
+                    // Return value is not clear for me in the doc.
+                }
+
                 return callback(null, {
                     key: cacheObj.key,
                     description: cacheObj.description

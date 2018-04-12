@@ -3,5 +3,6 @@
 module.exports = {
     db: {
         connection: 'mongodb://localhost.cake.net:27017/cache-api'
-    }
+    },
+    ttl : 60
 }
