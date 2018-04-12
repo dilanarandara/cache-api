@@ -1,8 +1,14 @@
-//TODO: Configurations must be read from config file.
+const path = require('path');
+
+require('dotenv-safe').load({
+    allowEmptyValues: true,
+    path: path.join(__dirname, '..', '.env'),
+    sample: path.join(__dirname, '..', '.env.example')
+});
 
 module.exports = {
     db: {
-        connection: 'mongodb://localhost.cake.net:27017/cache-api'
+        connection: process.env.DB_CONNECTION
     },
-    ttl : 60
-}
+    ttl: process.env.TTL
+};

@@ -5,5 +5,5 @@ Manual to start the application
 -------------------------------
 
 ```
-$ run npm install
+$ npm install
 ```
