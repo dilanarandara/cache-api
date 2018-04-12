@@ -82,6 +82,17 @@ class CacheService {
             callback(null, keyList);
         });
     }
+
+    /**
+     * Find cache record by key and update.
+     * If the cache record not found, then create.
+     * 
+     * @param {Object} data - Cache record data.
+     * @param {Function} callback - Callback function.
+     */
+    findByKeyAndUpsert(data, callback) {
+        cacheDao.findByKeyAndUpsert(data, callback);
+    }
 }
 
 module.exports = new CacheService();

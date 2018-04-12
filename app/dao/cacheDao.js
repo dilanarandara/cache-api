@@ -28,6 +28,22 @@ class CacheDao {
     }
 
     /**
+     * Find cache record by key and update.
+     * If the cache record not found, then create.
+     * 
+     * @param {Object} data - Cache record data.
+     * @param {Function} callback - Callback function.
+     */
+    findByKeyAndUpsert(data, callback) {
+        cacheModel.findOneAndUpdate(data.key, {
+            key: data.key,
+            description: data.description
+        }, {
+            upsert: true
+        }, callback);
+    }
+
+    /**
      * Retrieve all the cached keys.
      * 
      * @param {Function} callback - Callback function.

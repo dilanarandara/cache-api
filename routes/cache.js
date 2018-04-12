@@ -32,4 +32,22 @@ router.get('/', (req, res) => {
     })
 });
 
+router.put('/:key', (req, res) => {
+    const key = req.params.key,
+        description = req.body.description;
+
+    cacheService.findByKeyAndUpsert({
+        key,
+        description
+    }, (err, result) => {
+        if (err) {
+            res.status(httpStatus.INTERNAL_SERVER_ERROR)
+            res.send({error: 'Innternal Server Error'});
+        } else {
+            res.status(httpStatus.SUCCESS);
+            res.send({key, description});
+        }
+    });
+});
+
 module.exports = router;
