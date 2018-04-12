@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const cacheDao = require('../dao/cacheDao');
 const logger = require('../util/logger');
 
@@ -63,6 +65,22 @@ class CacheService {
                 });
             }
         })
+    }
+
+    /**
+     * Retrieve all the cached keys.
+     * 
+     * @memberof CacheDao
+     */
+    getAllKeys(callback) {
+        cacheDao.getAll((err, result) => {
+            if (err) {
+                return callback(err);
+            }
+
+            const keyList = result.map(cache => cache.key);
+            callback(null, keyList);
+        });
     }
 }
 

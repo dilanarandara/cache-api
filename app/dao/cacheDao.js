@@ -26,6 +26,16 @@ class CacheDao {
     create(data, callback) {
         cacheModel.create(data, callback);
     }
+
+    /**
+     * Retrieve all the cached keys.
+     * 
+     * @param {Function} callback - Callback function.
+     * @memberof CacheDao
+     */
+    getAll(callback) {
+        cacheModel.find({}).exec(callback);
+    }
 }
 
 module.exports = new CacheDao();

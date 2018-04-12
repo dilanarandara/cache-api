@@ -20,4 +20,16 @@ router.get('/:key', (req, res) => {
     });
 });
 
+router.get('/', (req, res) => {
+    cacheService.getAllKeys((err, result) => {
+        if (err) {
+            res.status(httpStatus.INTERNAL_SERVER_ERROR)
+            res.send({error: 'Innternal Server Error'});
+        } else {
+            res.status(httpStatus.SUCCESS);
+            res.send(result);
+        }
+    })
+});
+
 module.exports = router;
