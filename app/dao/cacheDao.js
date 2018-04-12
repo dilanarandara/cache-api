@@ -64,6 +64,16 @@ class CacheDao {
             key
         }, callback);
     }
+
+    /**
+     * Delete all cache records.
+     *
+     * @param {Function} callback - Callback function.
+     * @memberof CacheDao
+     */
+    deleteAll(callback) {
+        cacheModel.remove({}, callback);
+    }
 }
 
 module.exports = new CacheDao();

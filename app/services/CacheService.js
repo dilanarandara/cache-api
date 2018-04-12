@@ -103,6 +103,16 @@ class CacheService {
     deleteByKey(key, callback) {
         cacheDao.deleteByKey(key, callback);
     }
+
+    /**
+     * Delete all cache records.
+     *
+     * @param {Function} callback - Callback function.
+     * @memberof CacheDao
+     */
+    deleteAll(callback) {
+        cacheDao.deleteAll(callback);
+    }
 }
 
 module.exports = new CacheService();

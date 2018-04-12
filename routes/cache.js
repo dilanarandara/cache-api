@@ -63,4 +63,15 @@ router.delete('/:key', (req, res) => {
     })
 });
 
+router.delete('/', (req, res) => {
+    cacheService.deleteAll((err, result) => {
+        if (err) {
+            res.status(httpStatus.INTERNAL_SERVER_ERROR)
+            res.send({error: 'Innternal Server Error'});
+        } else {
+            res.status(httpStatus.SUCCESS).send();
+        }
+    })
+});
+
 module.exports = router;
