@@ -93,6 +93,16 @@ class CacheService {
     findByKeyAndUpsert(data, callback) {
         cacheDao.findByKeyAndUpsert(data, callback);
     }
+
+    /**
+     * Delete cache record by key.
+     *
+     * @param {String} key - Key name.
+     * @param {Function} callback - Callback function.
+     */
+    deleteByKey(key, callback) {
+        cacheDao.deleteByKey(key, callback);
+    }
 }
 
 module.exports = new CacheService();

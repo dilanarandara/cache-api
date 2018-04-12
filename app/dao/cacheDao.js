@@ -52,6 +52,18 @@ class CacheDao {
     getAll(callback) {
         cacheModel.find({}).exec(callback);
     }
+
+    /**
+     * Delete cache record by key.
+     *
+     * @param {String} key - Key name.
+     * @param {Function} callback - Callback function.
+     */
+    deleteByKey(key, callback) {
+        cacheModel.remove({
+            key
+        }, callback);
+    }
 }
 
 module.exports = new CacheDao();
