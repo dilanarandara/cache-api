@@ -36,6 +36,11 @@ router.put('/:key', (req, res) => {
     const key = req.params.key,
         description = req.body.description;
 
+    if (!description) {
+        res.status(httpStatus.BAD_REQUEST).send();
+        return;
+    }
+
     cacheService.findByKeyAndUpsert({
         key,
         description
