@@ -1,0 +1,19 @@
+{
+  "name": "cache-api",
+  "version": "1.0.0",
+  "description": "REST API that exposes methods to interact with a cache.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node ./bin/www"
+  },
+  "author": "Dilan Arandara",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-validator": "^5.1.2"
+  },
+  "devDependencies": {
+  }
+}
