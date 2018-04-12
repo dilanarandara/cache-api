@@ -44,7 +44,7 @@ router.put('/:key', (req, res) => {
             res.status(httpStatus.INTERNAL_SERVER_ERROR)
             res.send({error: 'Innternal Server Error'});
         } else {
-            res.status(httpStatus.SUCCESS);
+            res.status(httpStatus.CREATED);
             res.send({key, description});
         }
     });
