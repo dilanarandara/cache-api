@@ -35,7 +35,9 @@ class CacheDao {
      * @param {Function} callback - Callback function.
      */
     findByKeyAndUpsert(data, callback) {
-        cacheModel.findOneAndUpdate(data.key, {
+        cacheModel.findOneAndUpdate({
+            key: data.key
+        }, {
             key: data.key,
             description: data.description
         }, {
