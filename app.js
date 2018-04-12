@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 
+// Initialize the DB Connection.
+const dbConnection = require('./app/dao/database/connection');
+
 // Route files.
 const indexRoute = require('./routes/index');
 
