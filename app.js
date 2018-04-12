@@ -19,3 +19,6 @@ app.use('/', indexRoute);
 app.use('/cache', cacheRoute);
 
 module.exports = app;
+
+// TODO: Need to create a worker function, which reads all cache records in timely manner.
+// If the cache limit reach, then remove cache records by created_at time.
